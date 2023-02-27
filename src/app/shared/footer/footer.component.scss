@@ -1,0 +1,13 @@
+@import "../../../styles.scss";
+
+
+p {
+  font-weight: 300;
+  @media only screen and (max-width: 500px) {
+    font-size: 13px;
+ }}
+
+ .container {
+   height: 10vh;
+   }
+

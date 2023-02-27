@@ -1,0 +1,71 @@
+@import "../../../../styles.scss";
+
+.type {
+  background-color: $lightBgColor;
+  color: $fontColor;
+  font-weight: 500;
+  padding: 5px;
+  width: fit-content;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.pg {
+  font-size: 18px;
+}
+
+.overview {
+  color: #6c757d ;
+  font-size: 22px;
+}
+.biography {
+    color: #6c757d;
+      font-size: 22px;
+      overflow-y: scroll;
+  max-height: 300px;
+}
+
+::ng-deep {
+ .owl-next  {
+    right: -5%;
+    top: 30%;
+    position: absolute;
+    padding: 10px !important;
+  }
+     .owl-prev {
+       left: -5%;
+       top: 30%;
+       position: absolute;
+       padding: 10px !important;
+     }
+}
+
+.my-pagination ::ng-deep {
+
+  .ngx-pagination a,
+  .ngx-pagination button {
+    color: $fontColor;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 5px;
+
+    &:hover {
+      background-color: $lightBgColor;
+    }
+  }
+
+  .ngx-pagination .current {
+    background-color: $lightBgColor !important;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+}

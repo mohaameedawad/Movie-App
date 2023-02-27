@@ -1,0 +1,22 @@
+<div class="container my-5 py-4" *ngIf="homeHeader">
+      <app-spinner *ngIf="Loading == true"></app-spinner>
+
+  <div class="row">
+    <div class=" col-md-4">
+      <div class="upper">
+        <hr>
+        <h2 class="head">Trending<br>{{type}}<br>to Watch Right Now</h2>
+        <p style="font-weight: 200;">Most watched tv by days</p>
+        <button class="btn" routerLink="/mediatype/{{trending}}">See more</button>
+        <hr>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-2" *ngFor="let movie of movies,index as index">
+        <div *ngIf="index < 10 && homeHeader" routerLink="/mediatype/{{trending}}/{{movie.id}}" style="cursor: pointer;">
+          <img *ngIf="trending != 'person' && movie.poster_path" class="w-100 p-1" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" [alt]="movie.alt" title="{{movie.title}}{{movie.name}}">
+          <img *ngIf="trending == 'person' && movie.profile_path" class="w-100 p-1" src="https://image.tmdb.org/t/p/w500{{movie.profile_path}}" [alt]="movie.alt" title="{{movie.name}}">
+          <h6 class="py-2">{{movie.title || movie.name}}</h6>
+        </div>
+    </div>
+  </div>
+</div>

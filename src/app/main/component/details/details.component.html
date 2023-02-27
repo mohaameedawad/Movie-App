@@ -1,0 +1,67 @@
+<div class="container pt-2" style="margin-top: 80px;">
+  <app-spinner *ngIf="Loading == true"></app-spinner>
+
+  <div class="row">
+    <div class="col-md-4">
+        <img *ngIf="type == 'person'" class="w-100 p-1" src="https://image.tmdb.org/t/p/w500{{details.profile_path}}"
+           title="{{details.title}}{{details.name}}">
+        <img *ngIf="type != 'person'" class="w-100 p-1" src="https://image.tmdb.org/t/p/w500{{details.poster_path}}"
+           title="{{details.title}}{{details.name}}">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 40px;">{{details.title}}{{details.name}}</p>
+      <div class="row">
+        <p class="type m-3" *ngFor="let gener of genres">{{gener.name}}</p>
+      </div>
+      <div *ngIf="type != 'person'">
+        <p class="pg my-4">Vote: {{details.vote_average}}</p>
+        <p class="pg my-4">Vote Count: {{details.vote_count}}</p>
+        <p class="pg my-4">popularity: {{details.popularity}}</p>
+        <p class="pg my-4">release date: {{details.first_air_date}}</p>
+        <p class="overview mt-5">{{details.overview}}</p>
+      </div>
+      <div *ngIf="type == 'person'">
+        <p class="pg my-4">birthday: {{details.birthday }}</p>
+        <p class="pg my-4">place_of_birth: {{details.place_of_birth}}</p>
+        <p class="pg my-4">popularity: {{details.popularity}}</p>
+        <p class="biography mt-5">{{details.biography}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center my-5 py-5" *ngIf="type != 'person'">
+    <div  class="col-10 col-md-6 embed-responsive embed-responsive-16by9" style="height: 400px;">
+      <iframe  class="embed-responsive-item mb-5 pb-5" [src]="videopath| safe"  allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="row" *ngIf="type != 'person'">
+    <div class="col-12 mb-3">
+      <h3>Recommended {{type}} For You</h3>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-2" *ngFor="let movie of recommended, index as index">
+      <div routerLink="/mediatype/{{type}}/{{movie.id}}" style="cursor: pointer;">
+        <img  class="w-100 p-1"
+          src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" [alt]="movie.alt"
+          title="{{movie.title}}{{movie.name}}">
+        <h6 class="py-2">{{movie.title}}</h6>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="type == 'person'">
+    <div class="col-12 my-3 pt-5">
+      <h3> {{details.title}}{{details.name}}'s Movie Credit :</h3>
+    </div>
+  <div class="col-12">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container  *ngFor="let movie of recommended">
+        <ng-template carouselSlide [id]="movie.id">
+          <img routerLink="/mediatype/movie/{{movie.id}}" class="p-2" style="height: 300px; cursor: pointer;" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+            [alt]="movie.alt" [title]="movie.title">
+          <p class="p-2">{{movie.title}}</p>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+  </div>
+      <p-paginator *ngIf="type != 'person'" [rows]="20" [totalRecords]="total" (onPageChange)="paginate($event.page + 1)"></p-paginator>
+</div>
+

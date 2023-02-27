@@ -1,0 +1,28 @@
+@import "../../../../styles.scss";
+.upper {
+  position: relative;
+  &::after {
+      content: '';
+      background-color: grey;
+      width: 100%;
+      position: absolute;
+      height: $borderHeight;
+      left: 0;
+      bottom: 0;
+    }
+}
+
+.head::before {
+  content: '';
+  background-color: grey;
+  width: 25%;
+  position: absolute;
+  height: $borderHeight;
+  top: -5px;
+}
+
+.btn {
+  background-color: $lightBgColor;
+  position: relative;
+
+}

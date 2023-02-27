@@ -1,0 +1,55 @@
+@import "../../../styles.scss";
+
+.container-fluid {
+  background-color: $bgColor;
+}
+nav {
+  color: $fontColor;
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .form-control {
+      @media only screen and (max-width: $largescr) {
+        max-width: 100px;
+      }
+      @media only screen and (max-width: $mediumscr) {
+        max-width: 250px;
+      }
+    }
+  }
+}
+.nav-link {
+  color: $fontColor;
+  i {
+    @media only screen and (max-width: $mediumscr) {
+      margin-right: 10px;
+    }
+  }
+  font-size: 20px;
+  font-weight: 200;
+}
+.navbar-toggler-icon {
+  color: $fontColor;
+  }
+
+ ::ng-deep {
+   .p-inputtext  {
+      height: 35px;
+      width: 400px;
+      max-width: 80vw;
+    }
+    .p-autocomplete-panel.p-component{
+          height: 500px !important;
+          max-height: none !important;
+          @media only screen and (max-width: $largescr) {
+            max-height: 40vh !important;
+          }
+    }
+.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item{
+      color: black;
+      display: flex;
+    }
+}
+
+

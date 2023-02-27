@@ -1,0 +1,16 @@
+<section style="margin-top: 100px;">
+    <app-spinner *ngIf="Loading == true"></app-spinner>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-md-2" *ngFor="let item of mediaType,index as i">
+        <div routerLink="/mediatype/person/{{item.id}}" style="cursor: pointer;">
+          <img class="w-100 p-1" src="https://image.tmdb.org/t/p/w500{{item.profile_path}}"
+            [alt]="item.alt" title="{{item.name}}">
+          <h6 class="py-2">{{item.name}}</h6>
+        </div>
+      </div>
+    </div>
+    <p-paginator [rows]="20" [totalRecords]="total" (onPageChange)="paginate($event.page + 1)"></p-paginator>
+  </div>
+</section>

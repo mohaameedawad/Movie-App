@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$bgColor: #131722;
+$lightBgColor: #24baef;
+$bgTransparent: rgba(36, 186, 239, .6);
+$fontColor: #fff;
+$borderColor: #a8a8a83d;
+$borderHeight: 1px;
+$secondFontColor: #949cb0;
+$largescr : 1200px;
+$mediumscr : 992px;
+$smallscr : 768px;
+
+.body  {
+font-family: 'Montserrat Alternates', sans-serif ;
+background-color: $bgColor;
+color: $fontColor;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+::ng-deep {
+  .p-paginator.p-component {
+    background-color: transparent !important;
+  }
+
+  .p-paginator .p-paginator-pages .p-paginator-page,
+  .p-paginator .p-paginator-first,
+  .p-paginator .p-paginator-prev,
+  .p-paginator .p-paginator-next,
+  .p-paginator .p-paginator-last {
+    background-color: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    width: 50px;
+    height: 50px;
+    max-height: 10vw;
+    max-width: 10vw;
+  }
+
+  .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background-color: #fff !important;
+    border-radius: 50%;
+    color: #007bff !important;
+  }
+
+  @media only screen and (max-width: $smallscr) {
+
+    .p-paginator .p-paginator-last,
+    .p-paginator .p-paginator-first {
+      display: none !important;
+    }
+  }
+}
